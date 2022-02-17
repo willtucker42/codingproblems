@@ -20,3 +20,18 @@ class Solution(object):
                     longest_temp = 0
                     break
         return longest
+# ^^^ very shitty solution this new one much better
+
+def longestSubstringWithoutRepeating(s):
+    final_num = 0
+    chars = ''
+    for c in s:
+        if c not in chars:
+            chars += c
+            ret_num = len(chars)
+            if ret_num >= final_num:
+                final_num = ret_num
+        else:
+            chars = chars.split(c)[1] 
+            chars += c
+    return final_num
